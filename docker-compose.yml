@@ -4,7 +4,7 @@ services:
     # push to main. Replace OWNER/REPO with your actual GitHub username/repo
     # (lowercase). To build locally instead, comment this out and use
     # `build: .` instead - see the README for both workflows.
-    image: ghcr.io/OWNER/REPO:latest
+    image: ghcr.io/luandrej/household_ledger:latest
     container_name: budget-app
     restart: unless-stopped
     ports:
