@@ -15,7 +15,7 @@ services:
       LU_PASSWORD_HASH: "${LU_PASSWORD_HASH}"
       WIFE_USERNAME: "${WIFE_USERNAME}"
       WIFE_PASSWORD_HASH: "${WIFE_PASSWORD_HASH}"
-      WIFE_DISPLAY_NAME: "${WIFE_DISPLAY_NAME:-Wife}"
+      WIFE_DISPLAY_NAME: "${WIFE_DISPLAY_NAME:-Kay}"
     volumes:
       - ./data:/app/data
     networks:
