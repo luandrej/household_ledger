@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f3f5ee;
+  --paper-line: #d9ddd0;
+  --ink: #1f3a2e;
+  --ink-soft: #4b5d54;
+  --brass: #b8862f;
+  --brass-soft: #e4c98a;
+  --rust: #a34a3e;
+  --lu-mark: #2f6f5e;
+  --wife-mark: #8a5a44;
+  --shared-mark: #4b5d54;
+  --font-display: var(--font-source-serif), serif;
+  --font-body: var(--font-ibm-plex), sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.ledger-rule {
+  border-top: 1px solid var(--paper-line);
+}
+
+.ledger-rule-thick {
+  border-top: 2px solid var(--ink);
+}
+
+::selection {
+  background: var(--brass-soft);
+}

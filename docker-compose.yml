@@ -1,0 +1,26 @@
+services:
+  budget-app:
+    # Built and pushed automatically by .github/workflows/build.yml on every
+    # push to main. Replace OWNER/REPO with your actual GitHub username/repo
+    # (lowercase). To build locally instead, comment this out and use
+    # `build: .` instead - see the README for both workflows.
+    image: ghcr.io/OWNER/REPO:latest
+    container_name: budget-app
+    restart: unless-stopped
+    ports:
+      - "3411:3000"
+    environment:
+      AUTH_SECRET: "${AUTH_SECRET}"
+      LU_USERNAME: "${LU_USERNAME}"
+      LU_PASSWORD_HASH: "${LU_PASSWORD_HASH}"
+      WIFE_USERNAME: "${WIFE_USERNAME}"
+      WIFE_PASSWORD_HASH: "${WIFE_PASSWORD_HASH}"
+      WIFE_DISPLAY_NAME: "${WIFE_DISPLAY_NAME:-Wife}"
+    volumes:
+      - ./data:/app/data
+    networks:
+      - finance-net
+
+networks:
+  finance-net:
+    driver: bridge

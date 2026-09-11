@@ -1,0 +1,28 @@
+# Alternative to docker-compose.yml for building the image directly on the
+# server instead of pulling a pre-built one from GHCR (Option A in the README).
+#
+# Usage:
+#   docker compose -f docker-compose.build.yml up -d --build
+
+services:
+  budget-app:
+    build: .
+    container_name: budget-app
+    restart: unless-stopped
+    ports:
+      - "3411:3000"
+    environment:
+      AUTH_SECRET: "${AUTH_SECRET}"
+      LU_USERNAME: "${LU_USERNAME}"
+      LU_PASSWORD_HASH: "${LU_PASSWORD_HASH}"
+      WIFE_USERNAME: "${WIFE_USERNAME}"
+      WIFE_PASSWORD_HASH: "${WIFE_PASSWORD_HASH}"
+      WIFE_DISPLAY_NAME: "${WIFE_DISPLAY_NAME:-Wife}"
+    volumes:
+      - ./data:/app/data
+    networks:
+      - finance-net
+
+networks:
+  finance-net:
+    driver: bridge
